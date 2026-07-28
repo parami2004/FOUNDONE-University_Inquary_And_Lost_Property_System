@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard - University Service System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-university shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">UniLostFound</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="report.html">Lost & Found</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Operations Layout Container -->
+    <main class="container my-5">
+        <div class="text-center mb-5 p-4 bg-light rounded shadow-sm">
+            <h1 class="display-5 fw-bold text-university mb-1">My Report Control Panel</h1>
+            <p class="text-muted mb-0">Manage items reported by you and track live institutional service inquiry resolutions.</p>
+        </div>
+
+        <!-- Section List Tables -->
+        <section class="mb-5">
+            <h3 class="fw-bold mb-3 text-danger border-bottom pb-2">Lost Property Reports</h3>
+            <div class="table-responsive shadow-sm rounded mb-4">
+                <table class="table table-striped align-middle mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Date Reported</th>
+                            <th>Status</th>
+                            <th class="text-center">Action Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-semibold">HP Pen Drive 64GB</td>
+                            <td>24/07/2026</td>
+                            <td><span class="badge bg-warning text-dark">Processing</span></td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-outline-primary me-1">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="fw-bold mb-3 text-success border-bottom pb-2">Found Property Reports</h3>
+            <div class="table-responsive shadow-sm rounded">
+                <table class="table table-striped align-middle mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Date Reported</th>
+                            <th>Status</th>
+                            <th class="text-center">Action Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-semibold">Black Spectacles Case</td>
+                            <td>26/07/2026</td>
+                            <td><span class="badge bg-success">Resolved</span></td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-outline-primary me-1">Edit</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Send Inquiry Form Component Context Layout -->
+        <section class="card shadow p-4 max-w-750 mx-auto border-0 bg-light">
+            <h3 class="fw-bold mb-4 text-center text-university">SEND INQUIRY</h3>
+            <form id="inquiryForm">
+                <div class="mb-3">
+                    <label class="form-label fw-bold small text-muted">Subject</label>
+                    <input type="text" id="inquirySubject" class="form-control" placeholder="Enter inquiry context heading..." required>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold small text-muted">Message</label>
+                    <textarea id="inquiryMessage" class="form-control" rows="5" placeholder="Elaborate specific service request message particulars here..." required></textarea>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-university px-5 fw-bold text-white shadow-sm">SEND INQUIRY</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Bootstrap 5 Feedback Informative Modal Popup Trigger Component Structure -->
+    <div class="modal fade" id="inquirySuccessModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-top border-5 border-success p-3">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold text-success">Submission Successful</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body py-3 text-muted">
+                    Your inquiry has been logged securely into the university database. A support representative will respond shortly.
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-success fw-bold px-4 btn-sm" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 border-top border-warning border-3 mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 University Service Management Web Application.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
