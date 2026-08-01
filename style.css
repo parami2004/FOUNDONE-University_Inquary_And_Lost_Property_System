@@ -1,0 +1,70 @@
+
+   
+body {
+    background-color: #f8f9fa !important;
+    color: #212529 !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+
+h1, h2, h3, h4, h5, h6, .display-4, .lead, p, label, .form-label, span {
+    color: #212529 !important;
+}
+
+
+nav, .navbar, .navbar-dark, [class*="navbar"] {
+    background-color: #1a1a1a !important; 
+    padding: 0.8rem 1rem !important;
+}
+
+
+.navbar-brand {
+    color: #0dcaf0 !important; 
+    font-weight: bold !important;
+    font-size: 1.5rem !important;
+}
+
+
+.nav-link {
+    color: #ffffff !important; 
+    margin-right: 10px !important;
+}
+
+.nav-link:hover {
+    color: #0dcaf0 !important;
+}
+
+.nav-link.active {
+    color: #0dcaf0 !important;
+    font-weight: bold !important;
+}
+
+
+.navbar-toggler-icon {
+    filter: invert(1) !important;
+}
+
+
+footer, .bg-dark.text-center, footer.bg-dark {
+    background-color: #1a1a1a !important;
+    border-top: 2px solid #2d2d2d !important;
+    padding: 1.5rem 0 !important;
+}
+
+footer p, footer span, footer a, .text-white-50 {
+    color: rgba(255, 255, 255, 0.6) !important; 
+}
+
+
+.card-custom, .card {
+    background-color: #ffffff !important;
+    border: 1px solid #dee2e6 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    border-radius: 8px !important;
+}
+
+.form-control, .form-select {
+    background-color: #ffffff !important;
+    border: 1px solid #ced4da !important;
+    color: #212529 !important;
+}
