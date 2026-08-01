@@ -4,10 +4,10 @@ This is the frontend implementation for the ICT 1209: Web Technologies mini proj
 
 ## Group Members
 * Member 1: [S.Y.V.PARAMI] ([ITT/2024/077])
-* Member 2: [W.M.V.P.WEERTHUNGA] ([ITT/2024/116])
+* Member 2: [W.M.V.P.WEERATHUNGA] ([ITT/2024/116])
 
 ## Project Status
-* Phase 2: Frontend Layout & Design (Completed)
+* Phase 2: Frontend Layout & Design
 
 ## Technologies Used
 * HTML5 & CSS3
