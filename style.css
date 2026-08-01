@@ -68,3 +68,10 @@ footer p, footer span, footer a, .text-white-50 {
     border: 1px solid #ced4da !important;
     color: #212529 !important;
 }
+.hero-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(https://sagaciousresearch.com/wp-content/uploads/Trademark-Search-1.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 90px 0;
+    width: 100%;
+}

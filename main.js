@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
         reportForm.addEventListener("submit", function (event) {
             event.preventDefault();
             const itemName = document.getElementById("itemName").value.trim();
-            alert(`🎉 Success! Your report for "${itemName}" has been submitted.`);
+            alert(` Success! Your report for "${itemName}" has been submitted.`);
             reportForm.reset();
         });
     }
