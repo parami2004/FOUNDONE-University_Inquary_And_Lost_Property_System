@@ -5,7 +5,7 @@ require_once 'includes/db.php';
 $errors = [];
 $success = '';
 
-
+// 1. User Registration Logic
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'register') {
     $username = trim($_POST['username'] ?? '');
     $email    = trim($_POST['email'] ?? '');
@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     }
 }
 
+// 2. User Login Logic
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'login') {
     $email    = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
@@ -62,14 +63,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authentication - University Inquiry System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <
-link rel="stylesheet" href="style.css?v=99">
+    <link rel="stylesheet" href="style.css?v=99">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-university shadow-sm sticky-top">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.php">FOUNDONE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto fw-semibold">
                     <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
@@ -81,7 +85,7 @@ link rel="stylesheet" href="style.css?v=99">
     </nav>
 
     <main class="container my-5">
-        
+        <!-- Error and Success Messages -->
         <?php if (!empty($errors)): ?>
             <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
                 <?php foreach ($errors as $error): ?>
@@ -102,8 +106,8 @@ link rel="stylesheet" href="style.css?v=99">
             
             <!-- Login Form -->
             <div class="col-md-5">
-                <div class="card shadow h-100 p-4 border-top border-4 border-university">
-                    <h2 class="fw-bold mb-4 text-center text-university">Login</h2>
+                <div class="card shadow h-100 p-4 border-top border-4 border-dark">
+                    <h2 class="fw-bold mb-4 text-center text-dark">Login</h2>
                     <form action="auth.php" method="POST">
                         <input type="hidden" name="action" value="login">
                         
@@ -120,11 +124,12 @@ link rel="stylesheet" href="style.css?v=99">
                 </div>
             </div>
 
+            <!-- Divider Line -->
             <div class="col-md-2 d-none d-md-flex align-items-center justify-content-center position-relative">
                 <div class="vr h-75 bg-secondary opacity-25"></div>
             </div>
 
-           
+            <!-- Register Form -->
             <div class="col-md-5">
                 <div class="card shadow h-100 p-4 border-top border-4 border-warning">
                     <h2 class="fw-bold mb-4 text-center text-dark">Register</h2>
