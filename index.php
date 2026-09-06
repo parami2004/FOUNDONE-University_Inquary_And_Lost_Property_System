@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,18 +15,22 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-university shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">FOUNDONE</a>
+            <a class="navbar-brand fw-bold" href="index.php">FOUNDONE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto fw-semibold">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="report.html">Lost & Found</a></li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
-                    <li class="nav-item"><a class="btn btn-warning btn-sm ms-lg-2 px-3 text-dark fw-bold" href="auth.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="search.php">Lost & Found</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php#contact">Contact</a></li>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <li class="nav-item"><a class="btn btn-danger btn-sm ms-lg-2 px-3 text-white fw-bold" href="logout.php">Logout</a></li>
+                    <?php else: ?>
+                        <li class="nav-item"><a class="btn btn-warning btn-sm ms-lg-2 px-3 text-dark fw-bold" href="auth.php">Login</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
@@ -35,10 +42,10 @@
             <p class="lead mb-4">Report, search, and recover lost items quickly within the campus community.</p>
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <div class="input-group input-group-lg shadow">
-                        <input type="text" class="form-control" placeholder="Search lost & found items (e.g., keys, phone, bag)...">
-                        <a href="report.html" class="btn btn-warning px-4 fw-bold">Search</a>
-                    </div>
+                    <form action="search.php" method="GET" class="input-group input-group-lg shadow">
+                        <input type="text" name="keyword" class="form-control" placeholder="Search lost & found items (e.g., keys, phone, bag)...">
+                        <button type="submit" class="btn btn-warning px-4 fw-bold">Search</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -130,7 +137,6 @@
         </div>
     </section>
 
-    
     <footer class="bg-dark text-white text-center py-4 border-top border-warning border-3">
         <div class="container">
             <p class="mb-1">&copy; 2026 University Service Management Web Application. All Rights Reserved.</p>

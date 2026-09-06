@@ -46,9 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user_id']    = $user['id'];
             $_SESSION['username']   = $user['username'];
-            $_SESSION['user_email']  = $user['email'];
+            $_SESSION['user_email'] = $user['email'];
             
-            header("Location: dashboard.php");
+            // Redirects directly to Home Page (index.php) upon login
+            header("Location: index.php");
             exit();
         } else {
             $errors[] = "Invalid Email or Password.";
@@ -61,14 +62,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication - University Inquiry System</title>
+    <title>Authentication - FOUNDONE</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=99">
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100 bg-light">
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-university shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.php">FOUNDONE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -77,8 +78,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto fw-semibold">
                     <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="report.php">Lost & Found</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="search.php">Lost & Found</a></li>
                     <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php#contact">Contact</a></li>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <li class="nav-item"><a class="btn btn-danger btn-sm ms-lg-2 px-3 text-white fw-bold" href="logout.php">Logout</a></li>
+                    <?php else: ?>
+                        <li class="nav-item"><a class="btn btn-warning btn-sm ms-lg-2 px-3 text-dark fw-bold active" href="auth.php">Login</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
@@ -106,17 +114,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             
             <!-- Login Form -->
             <div class="col-md-5">
-                <div class="card shadow h-100 p-4 border-top border-4 border-dark">
-                    <h2 class="fw-bold mb-4 text-center text-dark">Login</h2>
+                <div class="card shadow h-100 p-4 border-top border-4 border-university bg-white">
+                    <h2 class="fw-bold mb-4 text-center text-university">Login</h2>
                     <form action="auth.php" method="POST">
                         <input type="hidden" name="action" value="login">
                         
                         <div class="mb-3">
-                            <label class="form-label">Email address</label>
+                            <label class="form-label fw-semibold">Email address</label>
                             <input type="email" name="email" class="form-control" required placeholder="Enter university email">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Password</label>
+                            <label class="form-label fw-semibold">Password</label>
                             <input type="password" name="password" class="form-control" required placeholder="Enter password">
                         </div>
                         <button type="submit" class="btn btn-dark w-100 fw-bold py-2 mt-3">LOGIN</button>
@@ -131,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
             <!-- Register Form -->
             <div class="col-md-5">
-                <div class="card shadow h-100 p-4 border-top border-4 border-warning">
+                <div class="card shadow h-100 p-4 border-top border-4 border-warning bg-white">
                     <h2 class="fw-bold mb-4 text-center text-dark">Register</h2>
                     <form action="auth.php" method="POST">
                         <input type="hidden" name="action" value="register">
@@ -148,11 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                             <label for="regPassword" class="form-label fw-semibold">Password</label>
                             <input type="password" name="password" class="form-control" id="regPassword" required placeholder="Create secure password">
                         </div>
-                        <div class="mb-4">
-                            <label for="regConfirmPassword" class="form-label fw-semibold">Confirm Password</label>
-                            <input type="password" class="form-control" id="regConfirmPassword" placeholder="Repeat password">
-                        </div>
-                        <button type="submit" class="btn btn-warning w-100 fw-bold shadow-sm py-2 text-dark">Register</button>
+                        <button type="submit" class="btn btn-warning w-100 fw-bold shadow-sm py-2 text-dark">REGISTER</button>
                     </form>
                 </div>
             </div>
@@ -160,13 +164,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-dark text-white text-center py-4 border-top border-warning border-3 mt-auto">
         <div class="container">
-            <p class="mb-0">&copy; 2026 University Service Management Web Application.</p>
+            <p class="mb-1">&copy; 2026 University Service Management Web Application. All Rights Reserved.</p>
+            <p class="small text-muted mb-0">Developed by S.Y.V. PARAMI & W.M.V.P. WEERATHUNGA</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
 </body>
 </html>
