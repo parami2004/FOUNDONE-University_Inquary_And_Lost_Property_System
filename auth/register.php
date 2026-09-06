@@ -5,7 +5,7 @@ require_once 'includes/db.php';
 $errors = [];
 $success = '';
 
-// 1. User Registration Logic
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'register') {
     $username = trim($_POST['username'] ?? '');
     $email    = trim($_POST['email'] ?? '');
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     }
 }
 
-// 2. User Login Logic
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'login') {
     $email    = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
@@ -48,7 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             $_SESSION['username']   = $user['username'];
             $_SESSION['user_email'] = $user['email'];
             
-            // Redirects directly to Home Page (index.php) upon login
             header("Location: index.php");
             exit();
         } else {
@@ -68,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 </head>
 <body class="d-flex flex-column min-vh-100 bg-light">
 
-    <!-- Navigation Bar -->
+    
     <nav class="navbar navbar-expand-lg navbar-dark bg-university shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.php">FOUNDONE</a>
@@ -93,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     </nav>
 
     <main class="container my-5">
-        <!-- Error and Success Messages -->
+        
         <?php if (!empty($errors)): ?>
             <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
                 <?php foreach ($errors as $error): ?>
@@ -112,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
         <div class="row g-5 align-items-stretch">
             
-            <!-- Login Form -->
+            
             <div class="col-md-5">
                 <div class="card shadow h-100 p-4 border-top border-4 border-university bg-white">
                     <h2 class="fw-bold mb-4 text-center text-university">Login</h2>
@@ -132,12 +131,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                 </div>
             </div>
 
-            <!-- Divider Line -->
+            
             <div class="col-md-2 d-none d-md-flex align-items-center justify-content-center position-relative">
                 <div class="vr h-75 bg-secondary opacity-25"></div>
             </div>
 
-            <!-- Register Form -->
+            
             <div class="col-md-5">
                 <div class="card shadow h-100 p-4 border-top border-4 border-warning bg-white">
                     <h2 class="fw-bold mb-4 text-center text-dark">Register</h2>
@@ -164,7 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         </div>
     </main>
 
-    <!-- Footer -->
+    
     <footer class="bg-dark text-white text-center py-4 border-top border-warning border-3 mt-auto">
         <div class="container">
             <p class="mb-1">&copy; 2026 University Service Management Web Application. All Rights Reserved.</p>
