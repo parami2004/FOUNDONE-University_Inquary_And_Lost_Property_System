@@ -14,7 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $description = trim($_POST['description'] ?? '');
     $user_id     = $_SESSION['user_id'] ?? null;
 
-    // Handle Image Upload
     $image_path = null;
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         $img_name = time() . '_' . basename($_FILES['image']['name']);
@@ -96,7 +95,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-university shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.php">FOUNDONE</a>
