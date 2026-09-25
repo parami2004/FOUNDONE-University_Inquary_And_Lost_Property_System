@@ -1,151 +1,301 @@
 <?php
-session_start();
+
+require_once 'includes/functions.php';
+
 ?>
+
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>University Inquiry & Lost Property System</title>
 
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
 
+
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-university shadow-sm sticky-top">
+
         <div class="container">
+
             <a class="navbar-brand fw-bold" href="index.php">FOUNDONE</a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
                 <span class="navbar-toggler-icon"></span>
+
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
+
                 <ul class="navbar-nav ms-auto fw-semibold">
+
                     <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
+
                     <li class="nav-item"><a class="nav-link" href="index.php#about">About</a></li>
+
                     <li class="nav-item"><a class="nav-link" href="search.php">Lost & Found</a></li>
+
                     <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
+
                     <li class="nav-item"><a class="nav-link" href="contact.php">Contact Us</a></li>
-                    <?php if (isset($_SESSION['user_id'])): ?>
+
+                    <?php if (is_logged_in()): ?>
+
                         <li class="nav-item"><a class="btn btn-danger btn-sm ms-lg-2 px-3 text-white fw-bold" href="auth/logout.php">Logout</a></li>
+
                     <?php else: ?>
+
                         <li class="nav-item"><a class="btn btn-warning btn-sm ms-lg-2 px-3 text-dark fw-bold" href="auth/login.php">Login</a></li>
+
                     <?php endif; ?>
+
                 </ul>
+
             </div>
+
         </div>
+
     </nav>
 
+
+
     <header class="hero-section text-center text-white d-flex align-items-center">
+
         <div class="container">
+
             <h1 class="display-4 fw-bold mb-3">UNIVERSITY INQUIRY & LOST PROPERTY SYSTEM</h1>
+
             <p class="lead mb-4">Report, search, and recover lost items quickly within the campus community.</p>
+
             <div class="row justify-content-center">
+
                 <div class="col-md-8">
+
                     <form action="search.php" method="GET" class="input-group input-group-lg shadow">
+
                         <input type="text" name="keyword" class="form-control" placeholder="Search lost & found items (e.g., keys, phone, bag)...">
+
                         <button type="submit" class="btn btn-warning px-4 fw-bold">Search</button>
+
                     </form>
+
                 </div>
+
             </div>
+
         </div>
+
     </header>
 
+
+
     <main class="container my-5">
+
         <div class="row g-4">
+
            
+
             <div class="col-md-6">
+
                 <div class="p-3 bg-light rounded shadow-sm mb-3 border-start border-4 border-danger">
+
                     <h3 class="h4 text-danger fw-bold mb-0">Latest Lost Items</h3>
+
                 </div>
+
                 <div class="row row-cols-1 row-cols-sm-2 g-3">
-                    
-                    <div class="col">
-                        <div class="card h-100 shadow-sm transition-card">
-                            <img src="https://modella.lk/wp-content/uploads/2026/03/5.png" class="card-img-top" alt="Black Laptop Bag" style="height: 180px; object-fit: contain; padding: 10px; background-color: #ffffff;">
-                            <div class="card-body">
-                                <h5 class="card-title fw-bold">Black Laptop Bag</h5>
-                                <p class="card-text text-muted small mb-1">Location: Faculty of IT</p>
-                                <span class="badge bg-danger">Lost</span>
-                            </div>
-                        </div>
-                    </div>
+
+                   
 
                     <div class="col">
+
                         <div class="card h-100 shadow-sm transition-card">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2wMuDidtHu-jh3j0ulnuiAhXrTPnX9idIMr4f46iq7FLjc25Iryv4uNw&s=10" class="card-img-top" alt="Scientific Calculator" style="height: 180px; object-fit: contain; padding: 10px; background-color: #ffffff;">
+
+                            <img src="https://modella.lk/wp-content/uploads/2026/03/5.png" class="card-img-top" alt="Black Laptop Bag" style="height: 180px; object-fit: contain; padding: 10px; background-color: #ffffff;">
+
                             <div class="card-body">
-                                <h5 class="card-title fw-bold">Scientific Calculator</h5>
-                                <p class="card-text text-muted small mb-1">Location: Main Library</p>
+
+                                <h5 class="card-title fw-bold">Black Laptop Bag</h5>
+
+                                <p class="card-text text-muted small mb-1">Location: Faculty of IT</p>
+
                                 <span class="badge bg-danger">Lost</span>
+
                             </div>
+
                         </div>
+
                     </div>
+
+
+
+                    <div class="col">
+
+                        <div class="card h-100 shadow-sm transition-card">
+
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2wMuDidtHu-jh3j0ulnuiAhXrTPnX9idIMr4f46iq7FLjc25Iryv4uNw&s=10" class="card-img-top" alt="Scientific Calculator" style="height: 180px; object-fit: contain; padding: 10px; background-color: #ffffff;">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title fw-bold">Scientific Calculator</h5>
+
+                                <p class="card-text text-muted small mb-1">Location: Main Library</p>
+
+                                <span class="badge bg-danger">Lost</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
 
                 </div>
+
             </div>
+
+
 
             <div class="col-md-6">
+
                 <div class="p-3 bg-light rounded shadow-sm mb-3 border-start border-4 border-success">
+
                     <h3 class="h4 text-success fw-bold mb-0">Latest Found Items</h3>
+
                 </div>
+
                 <div class="row row-cols-1 row-cols-sm-2 g-3">
 
-                    <div class="col">
-                        <div class="card h-100 shadow-sm transition-card">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYflt1r1m2YLzsNdAt9_FnVT-8mtU7vgTQekXShl7V0w&s=10" class="card-img-top" alt="Smart Watch" style="height: 180px; object-fit: cover;">
-                            <div class="card-body">
-                                <h5 class="card-title fw-bold">Smart Watch</h5>
-                                <p class="card-text text-muted small mb-1">Location: Gym Premises</p>
-                                <span class="badge bg-success">Found</span>
-                            </div>
-                        </div>
-                    </div>
+
 
                     <div class="col">
+
                         <div class="card h-100 shadow-sm transition-card">
-                            <img src="https://rsbmultishop.lk/wp-content/uploads/2025/04/Student-identity-cards-printing-by-rsb-multishop.png" class="card-img-top" alt="Student ID Card" style="height: 180px; object-fit: cover;">
+
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYflt1r1m2YLzsNdAt9_FnVT-8mtU7vgTQekXShl7V0w&s=10" class="card-img-top" alt="Smart Watch" style="height: 180px; object-fit: cover;">
+
                             <div class="card-body">
-                                <h5 class="card-title fw-bold">Student ID Card</h5>
-                                <p class="card-text text-muted small mb-1">Location: Canteen Area</p>
+
+                                <h5 class="card-title fw-bold">Smart Watch</h5>
+
+                                <p class="card-text text-muted small mb-1">Location: Gym Premises</p>
+
                                 <span class="badge bg-success">Found</span>
+
                             </div>
+
                         </div>
+
                     </div>
+
+
+
+                    <div class="col">
+
+                        <div class="card h-100 shadow-sm transition-card">
+
+                            <img src="https://rsbmultishop.lk/wp-content/uploads/2025/04/Student-identity-cards-printing-by-rsb-multishop.png" class="card-img-top" alt="Student ID Card" style="height: 180px; object-fit: cover;">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title fw-bold">Student ID Card</h5>
+
+                                <p class="card-text text-muted small mb-1">Location: Canteen Area</p>
+
+                                <span class="badge bg-success">Found</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
 
                 </div>
+
             </div>
+
+
 
         </div>
+
     </main>
 
+
+
     <section id="about" class="py-5 bg-light text-center">
+
         <div class="container max-w-750">
+
             <h2 class="fw-bold mb-3 border-bottom pb-2 display-6 text-university">About the System</h2>
+
             <p class="lead text-muted">This platform allows university students, academic staff, non-academic staff, and visitors to report lost and found properties efficiently, ensuring full visibility and ease of recovery across campus premises.</p>
+
         </div>
+
     </section>
+
+
 
     <section id="contact" class="py-5 text-center">
+
         <div class="container max-w-600">
+
             <h2 class="fw-bold mb-4 border-bottom pb-2 display-6 text-university">Contact Information</h2>
+
             <div class="card shadow-sm p-4">
+
                 <p class="mb-2"><strong>Email:</strong> support@university.lk</p>
+
                 <p class="mb-2"><strong>Phone:</strong> +94 11 234 5678</p>
+
                 <p class="mb-3"><strong>Address:</strong> Security Management Office, University Premises</p>
+
                 <a href="contact.php" class="btn btn-warning fw-bold text-dark mt-2">Send Us a Direct Message</a>
+
             </div>
+
         </div>
+
     </section>
 
+
+
     <footer class="bg-dark text-white text-center py-4 border-top border-warning border-3">
+
         <div class="container">
+
             <p class="mb-1">&copy; 2026 University Service Management Web Application. All Rights Reserved.</p>
+
             <p class="small text-muted mb-0">Developed by S.Y.V. PARAMI & W.M.V.P. WEERATHUNGA</p>
+
         </div>
+
     </footer>
 
+
+
     <script src="js/main.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>

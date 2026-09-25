@@ -123,6 +123,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
+
+                <!-- Back Button -->
+                <div class="mb-3">
+                    <a href="dashboard.php" class="btn btn-outline-secondary fw-semibold">
+                        &larr; Back to Dashboard
+                    </a>
+                </div>
+
                 <div class="card card-custom p-4 shadow-lg rounded-3">
                     <h2 class="text-center fw-bold text-university mb-2">Report Lost & Found Item</h2>
                     <p class="text-center text-muted mb-4">Fill out the form below to report a lost or found item within the campus community.</p>

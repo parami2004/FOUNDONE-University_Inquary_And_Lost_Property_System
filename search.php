@@ -38,19 +38,19 @@ $items = $stmt->fetchAll();
 <body class="d-flex flex-column min-vh-100 bg-light">
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-university shadow-sm sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.php">FOUNDONE</a>
+            <a class="navbar-brand fw-bold text-white" href="index.php">FOUNDONE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto fw-semibold">
-                    <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.php#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="search.php">Lost & Found</a></li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard.php">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.php#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.php#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-warning active" href="search.php">Lost & Found</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="dashboard.php">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.php#contact">Contact</a></li>
                     <?php if (isset($_SESSION['user_id'])): ?>
                         <li class="nav-item"><a class="btn btn-danger btn-sm ms-lg-2 px-3 text-white fw-bold" href="logout.php">Logout</a></li>
                     <?php else: ?>
