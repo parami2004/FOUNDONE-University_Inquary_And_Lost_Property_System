@@ -87,6 +87,7 @@ $items = $stmt->fetchAll();
                 <thead class="table-dark">
                     <tr>
                         <th>Status</th>
+                        <th>Image</th>
                         <th>Title</th>
                         <th>Category</th>
                         <th>Location</th>
@@ -102,6 +103,15 @@ $items = $stmt->fetchAll();
                                     <span class="badge bg-<?php echo $item['status'] === 'Lost' ? 'danger' : 'success'; ?>">
                                         <?php echo strtoupper($item['status']); ?>
                                     </span>
+                                </td>
+                                <td>
+                                     <?php if (!empty($item['image']) && file_exists('uploads/' . $item['image'])): ?>
+                                       <img src="uploads/<?php echo htmlspecialchars($item['image']); ?>" 
+                                               alt="Item Image" 
+                                               style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;">
+                                              <?php else: ?>
+                                        <span class="text-muted" style="font-size: 0.85rem;">No Image</span>
+                                     <?php endif; ?>
                                 </td>
                                 <td class="fw-bold"><?php echo htmlspecialchars($item['title']); ?></td>
                                 <td><?php echo htmlspecialchars($item['category']); ?></td>

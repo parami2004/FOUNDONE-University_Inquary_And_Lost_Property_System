@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
             $_SESSION['username']   = $user['username'];
             $_SESSION['user_email'] = $user['email'];
             
-            header("Location: ../index.php");
+            header("Location: ../dashboard.php");
             exit();
         } else {
             $errors[] = "Invalid Email or Password.";
