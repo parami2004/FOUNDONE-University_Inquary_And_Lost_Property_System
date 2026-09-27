@@ -5,7 +5,6 @@ require_once '../includes/db.php';
 $errors = [];
 $success = '';
 
-// Registration Logic
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'register') {
     $username = trim($_POST['username'] ?? '');
     $email    = trim($_POST['email'] ?? '');
@@ -31,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     }
 }
 
-// Login Logic
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'login') {
     $email    = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
@@ -110,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
         <div class="row g-5 align-items-stretch">
             
-            <!-- Login Form -->
+            
             <div class="col-md-5">
                 <div class="card shadow h-100 p-4 border-top border-4 border-university bg-white">
                     <h2 class="fw-bold mb-4 text-center text-university">Login</h2>
@@ -130,12 +129,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                 </div>
             </div>
 
-            <!-- Vertical Divider -->
+            
             <div class="col-md-2 d-none d-md-flex align-items-center justify-content-center position-relative">
                 <div class="vr h-75 bg-secondary opacity-25"></div>
             </div>
 
-            <!-- Register Form -->
+            
             <div class="col-md-5">
                 <div class="card shadow h-100 p-4 border-top border-4 border-warning bg-white">
                     <h2 class="fw-bold mb-4 text-center text-dark">Register</h2>

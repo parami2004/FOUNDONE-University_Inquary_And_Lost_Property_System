@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="row justify-content-center">
             <div class="col-md-8">
 
-                <!-- Back Button -->
+                
                 <div class="mb-3">
                     <a href="dashboard.php" class="btn btn-outline-secondary fw-semibold">
                         &larr; Back to Dashboard
@@ -206,7 +206,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </main>
 
-    <!-- Footer -->
+    
     <footer class="bg-dark text-white text-center py-4 border-top border-warning border-3 mt-auto">
         <div class="container">
             <p class="mb-1">&copy; 2026 University Service Management Web Application. All Rights Reserved.</p>
