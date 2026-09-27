@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db   = 'foundone_db';
+$db = 'foundone_db';
 $user = 'root';
 $pass = '';
 
